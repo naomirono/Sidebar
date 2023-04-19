@@ -1,15 +1,16 @@
-import { useState } from 'react'
+import SideNavigation from './components/SideNavigation'
+import SplashScreen from './components/SplashScreen';
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <div className="App">
-      
-    
+    <div className="flex">
+      <SideNavigation />
+      <div className="flex-1">
+        <SplashScreen/>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
