@@ -10,6 +10,8 @@
     "build:css": "postcss styles.css -o public/build/tailwind.css"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
+    "@heroicons/react": "^1.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
