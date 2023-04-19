@@ -16,18 +16,6 @@ function SplashScreen() {
         <h1 className="text-6xl font-bold text-white">Shoe Store</h1>
         <p className="text-6xl font-bold text-white">App</p>
     
-    <div className="flex justify-center">
-        
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10 mr-4">
-            Login
-          </button>
-        
-        
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-10 ml-4">
-            Sign Up
-          </button>
-        
-    </div>
 
       </div>
     </div>
