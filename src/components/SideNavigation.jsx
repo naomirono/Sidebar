@@ -1,11 +1,28 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { FaHome,FaSearch, FaStar, FaShoppingBag, FaClipboardList, FaHeart, FaUser } from 'react-icons/fa';
 
-
 function SideNavigation() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [sidebarWidth, setSidebarWidth] = useState(6);
+
+  const handleMouseEnter = () => {
+    setIsOpen(true);
+    setSidebarWidth(12);
+  };
+
+  const handleMouseLeave = () => {
+    setIsOpen(false);
+    setSidebarWidth(6);
+  };
+
   return (
-    <div className="flex flex-col w-64 h-screen px-4 py-8 bg-gray-800 text-white">
+    <div
+      className="flex flex-col w-6rem h-screen px-4 py-8 bg-gray-800 text-white"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{ width: `${sidebarWidth}rem` }}
+    >
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center">
           <img
@@ -13,59 +30,55 @@ function SideNavigation() {
             src="https://source.unsplash.com/100x100/?portrait"
             alt="Profile"
           />
-          <h1 className="ml-3 text-lg font-medium">John Doe</h1>
+          <h1 className="ml-3 text-lg font-medium">
+          {isOpen && <span>John Doe</span>}</h1>
         </div>
-        
-</div>
-<div className="flex-grow">
-<nav className="space-y-3 mt-5">
-
-<a
-  href="#"
-  className="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
->
-  <FaSearch  className=" -ml-1 mr-3 h-6 w-6 text-gray-400 "/>
-  Search
-</a>
-<a
-  href="#"
-  className="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
->
-  <FaHome  className=" -ml-1 mr-3 h-6 w-6 text-gray-400"/>
-
-  Home
-</a>
-
-
+      </div>
+      <div className="flex-grow">
+        <nav className="space-y-3 mt-5">
+          <a
+            href="#"
+            className="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+          >
+            <FaSearch  className=" -ml-1 mr-3 h-6 w-6 text-gray-400 "/>
+            {isOpen && <span>Search</span>}
+          </a>
+          <a
+            href="#"
+            className="flex items-center px-3 py-2 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+          >
+            <FaHome  className=" -ml-1 mr-3 h-6 w-6 text-gray-400"/>
+            {isOpen && <span>Home</span>}
+          </a>
+          <a
+            href="#"
+            className="flex items-center px-3 py-3 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+          >
+            <FaStar  className=" -ml-1 mr-3 h-6 w-6 text-gray-400"/>
+            {isOpen && <span>Featured</span>}
+          </a>
+          <a
+            href="#"
+            className="flex items-center px-3 py-3 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+          >
+            <FaShoppingBag  className=" -ml-1 mr-3 h-6 w-6 text-gray-400 "/>
+            {isOpen && <span>Products</span>}
+          </a>
+          <a
+            href="#"
+            className="flex items-center px-3 py-3 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+          >
+            <FaClipboardList className=" -ml-1 mr-3 h-6 w-6 text-gray-400"/>
+            {isOpen && <span>Order</span>}
+          </a>
+      
       <a
-        href="#"
-        className="flex items-center px-3 py-3 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
-      >
-        <FaStar  className=" -ml-1 mr-3 h-6 w-6 text-gray-400"/>
-        Featured
-      </a>
-
-      <a
-        href="#"
-        className="flex items-center px-3 py-3 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
-      >
-       <FaShoppingBag  className=" -ml-1 mr-3 h-6 w-6 text-gray-400 "/>
-        Products
-      </a>
-      <a
-        href="#"
-        className="flex items-center px-3 py-3 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
-      >
-       <FaClipboardList className=" -ml-1 mr-3 h-6 w-6 text-gray-400"/>
-         order
-      </a>
-      <a
-        href="#"
-        className="flex items-center px-3 py-3 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
-      >
-       <FaHeart  className=" -ml-1 mr-3 h-6 w-6 text-gray-400"/>
-        Wishlist
-      </a>
+            href="#"
+            className="flex items-center px-3 py-3 text-sm font-medium rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+          >
+            <FaHeart className=" -ml-1 mr-3 h-6 w-6 text-gray-400"/>
+            {isOpen && <span>Wishlist</span>}
+          </a>
 
 
 
@@ -77,7 +90,7 @@ function SideNavigation() {
           <div>
           <Menu.Button className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 bg-gray-700 text-sm font-medium hover:bg-gray-600 ">
           <FaUser  className=" -ml-1 mr-3 h-5 w-5 text-gray-400"/>
-                Account
+          {isOpen && <span>Account</span>}
               </Menu.Button>
 </div>
 
