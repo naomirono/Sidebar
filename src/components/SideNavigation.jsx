@@ -18,7 +18,7 @@ function SideNavigation() {
 
   return (
     <div
-      className="flex flex-col w-6rem h-screen px-4 py-8 bg-gray-800 text-white"
+      className="flex flex-col w-6rem h-screen px-4 py-8 bg-black text-white"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       style={{ width: `${sidebarWidth}rem` }}
