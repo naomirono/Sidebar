@@ -1,5 +1,6 @@
 import SideNavigation from './components/SideNavigation'
 import SplashScreen from './components/SplashScreen';
+
 import './App.css'
 
 const App = () => {
